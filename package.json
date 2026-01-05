@@ -17,7 +17,7 @@
     "remove-build": "rimraf ./build",
     "copy-graphql": "copyfiles -f ./src/**/*.graphql build/graphql-schema",
     "prebuild": "yarn remove-build",
-    "build": "tsc",
+    "build": "NODE_OPTIONS=--max-old-space-size=4096 tsc",
     "postbuild": "yarn copy-graphql",
     "prestart": "yarn build",
     "start": "node build/server.js",
